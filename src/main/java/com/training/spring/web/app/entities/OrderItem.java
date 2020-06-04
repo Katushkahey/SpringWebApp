@@ -50,13 +50,13 @@ public class OrderItem {
         } else if (this == obj) {
             return true;
         }
-        return this.id == ((OrderItem) obj).id;
+        return this.getProduct().equals(((OrderItem) obj).getProduct());
     }
 
     @Override
     public int hashCode() {
         int result = 17;
-        result = 31 * result + (int)(getProduct().getId());
+        result = 31 * result + (int) (getProduct().getId());
         result = 31 * result + getProduct().getTitle().hashCode();
         return result;
     }

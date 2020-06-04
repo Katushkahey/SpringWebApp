@@ -1,11 +1,12 @@
 package com.training.spring.web.app.entities;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 
@@ -46,6 +47,16 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        } else if (this == obj) {
+            return true;
+        }
+        return this.id == ((Product) obj).getId();
     }
 
     @Override

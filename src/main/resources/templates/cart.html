@@ -24,14 +24,15 @@
         <tr>
             <td>Title</td>
             <td>Price</td>
-<!--            <td>Count</td>-->
+            <td>Count</td>
             <td>Delete</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="item : ${items}">
+        <tr th:each="item : ${list}">
             <td th:text="${item.product.title}"/>
             <td th:text="${item.product.price}"/>
+            <td th:text="${items.get(item)}"/>
             <td><a class="btn btn-danger" th:href="@{'/cart/remove_from_cart/' + ${item.product.id}}">Delete</a></td>
         </tr>
         </tbody>
